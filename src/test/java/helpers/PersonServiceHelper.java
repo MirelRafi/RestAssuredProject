@@ -66,7 +66,32 @@ public class PersonServiceHelper {
                         .post(EndPoints.CREATE_PERSON)
                         .andReturn();
 
-        assertEquals(response.getStatusCode(), HttpStatus.SC_CREATED, "Create");
+        assertEquals(response.getStatusCode(), HttpStatus.SC_CREATED, "Created");
+        System.out.println("Status code: " + response.getStatusCode());
+        response.prettyPrint();
+
+        return response;
+    }
+
+    public Response updatePerson(String firstName, String lastName, Integer age, Integer id, String address, String phoneNumbers) {
+        Person person = new Person();
+        person.setFirstName(firstName);
+        person.setLastName(lastName);
+        person.setAge(age);
+        person.setId(id);
+        person.setAddress(address);
+        person.setPhoneNumbers(phoneNumbers);
+
+        Response response =
+                given()
+                        .contentType(ContentType.JSON)
+                        .pathParam("id", id)
+                        .when()
+                        .body(person)
+                        .patch(EndPoints.UPDATE_PERSON)
+                        .andReturn();
+
+        assertTrue(response.getStatusCode() == HttpStatus.SC_OK);
         System.out.println("Status code: " + response.getStatusCode());
         response.prettyPrint();
 
