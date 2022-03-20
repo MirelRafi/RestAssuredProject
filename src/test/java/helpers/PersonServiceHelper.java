@@ -91,7 +91,7 @@ public class PersonServiceHelper {
                         .patch(EndPoints.UPDATE_PERSON)
                         .andReturn();
 
-        assertTrue(response.getStatusCode() == HttpStatus.SC_OK);
+        assertEquals(response.getStatusCode(), HttpStatus.SC_OK);
         System.out.println("Status code: " + response.getStatusCode());
         response.prettyPrint();
 
@@ -108,7 +108,7 @@ public class PersonServiceHelper {
                         .when()
                         .delete(EndPoints.DELETE_PERSON)
                         .andReturn();
-        assertTrue(response.getStatusCode() == HttpStatus.SC_OK);
+        assertEquals(response.getStatusCode(), HttpStatus.SC_OK);
         System.out.println("Status code: " + response.getStatusCode());
         response.prettyPrint();
 

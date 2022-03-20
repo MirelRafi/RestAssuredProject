@@ -2,7 +2,10 @@
 <suite name="Suite1" verbose="1">
     <test name="Test1">
         <classes>
-            <class name="tests.TestRestAssuredFR"/>
+            <class name="tests.TestGetPerson"/>
+            <class name="tests.TestPostPerson"/>
+            <class name="tests.TestDeletePerson"/>
+            <class name="tests.TestUpdatePerson"/>
         </classes>
     </test>
 </suite>
